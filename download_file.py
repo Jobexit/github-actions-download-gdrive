@@ -19,9 +19,7 @@ def download_file() -> None:
 def _get_output_file_path() -> Path:
     chosen_path = os.getenv("DOWNLOAD_TO")
     mime_type = os.getenv("EXPORT_MEDIA_TYPE")
-    download_directory = Path(chosen_path)
-    download_directory.mkdir(parents=True, exist_ok=True)
-    output_file_path = download_directory
+    output_file_path = Path(chosen_path)
     
     # add an appropriate extension if file_name does not
     # have an extension, and if we can guess the appropriate
@@ -53,7 +51,7 @@ def _download_file(file_id: str, file_name: str) -> None:
 
 
 if __name__ == '__main__':
-    service_account_info = json.loads(os.getenv("SERVICE_ACCOUNT_KEY_JSON"))
+    service_account_info = json.load(open(os.getenv("SERVICE_ACCOUNT_KEY_JSON")))
     credentials = service_account.Credentials.from_service_account_info(service_account_info)
     drive_service = build('drive', 'v3', credentials=credentials)
     download_file()
