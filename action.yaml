@@ -12,8 +12,7 @@ inputs:
 
   download-to:
     description: The path and filename where the downloaded file should be placed
-    required: false
-    default: ./
+    required: true
     
   export-media-type:
     description: The media type, if exporting a Google Workspace document
