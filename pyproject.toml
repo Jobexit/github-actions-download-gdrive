@@ -4,11 +4,11 @@ version = "0.1.0"
 description = ""
 authors = ["Vasco Compain <vasco@ik.me>"]
 readme = "README.md"
-packages = [{include = "gdrive_download"}]
-
+packages = [{include = "download_file.py"}]
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.9"
 google-api-python-client = "^2.87.0"
+google = "^3.0.0"
 
 
 [build-system]
