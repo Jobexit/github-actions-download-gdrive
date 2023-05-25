@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "gdrive-download"
+version = "0.1.0"
+description = ""
+authors = ["Vasco Compain <vasco@ik.me>"]
+readme = "README.md"
+packages = [{include = "gdrive_download"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+google-api-python-client = "^2.87.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

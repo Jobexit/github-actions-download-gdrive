@@ -1,0 +1,31 @@
+name: Google Drive Download
+description: Download file from Google Drive
+
+inputs:
+  service-account-key-json:
+    description: The credentials key for Google service account that have access to file which will be downloaded
+    required: true
+
+  file-id:
+    description: The id of the file to download
+    required: true
+
+  download-to:
+    description: The path and filename where the downloaded file should be placed
+    required: false
+    default: ./
+    
+  export-media-type:
+    description: The media type, if exporting a Google Workspace document
+    required: false
+    default: ""
+
+
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    SERVICE_ACCOUNT_KEY_JSON: ${{ inputs.service-account-key-json }}
+    FILE_ID: ${{ inputs.file-id }}
+    DOWNLOAD_TO: ${{ inputs.download-to }}
+    EXPORT_MEDIA_TYPE: ${{ inputs.export-media-type }}
