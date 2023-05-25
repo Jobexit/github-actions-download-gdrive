@@ -51,7 +51,7 @@ def _download_file(file_id: str, file_name: str) -> None:
 
 
 if __name__ == '__main__':
-    service_account_info = json.load(open(os.getenv("SERVICE_ACCOUNT_KEY_JSON")))
+    service_account_info = json.loads(os.getenv("SERVICE_ACCOUNT_KEY_JSON"))
     credentials = service_account.Credentials.from_service_account_info(service_account_info)
     drive_service = build('drive', 'v3', credentials=credentials)
     download_file()
